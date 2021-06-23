@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Vues.UCPetitsElements.ModifDetailSpeMateriau"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vues.UCPetitsElements"
+             xmlns:util="clr-namespace:Vues.Utilitaire"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.ColumnSpan="2" Text="{Binding MethodeDeRecolte}" TextWrapping="Wrap" FontSize="15"/>
+
+        <TextBlock Text="Couche minimale" Grid.Row="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
+        <TextBlock Text="Couche maximale" Grid.Row="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
+
+        <util:SelectionneNombreUC Valeur="{Binding LocalisationMateriau.CoucheMin, Mode=TwoWay}" ValeurMinimum="0" ValeurMaximum="255" Grid.Column="1" Grid.Row="1"/>
+        <util:SelectionneNombreUC Valeur="{Binding LocalisationMateriau.CoucheMax, Mode=TwoWay}" ValeurMinimum="0" ValeurMaximum="255" Grid.Column="1" Grid.Row="2"/>
+
+    </Grid>
+</UserControl>

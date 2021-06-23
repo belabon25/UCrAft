@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "Vues/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "Images": "1.0.0",
+          "Modele": "1.0.0"
+        },
+        "runtime": {
+          "Vues.dll": {}
+        }
+      },
+      "Data/1.0.0": {
+        "dependencies": {
+          "Modele": "1.0.0"
+        },
+        "runtime": {
+          "Data.dll": {}
+        }
+      },
+      "Images/1.0.0": {
+        "runtime": {
+          "Images.dll": {}
+        }
+      },
+      "Modele/1.0.0": {
+        "runtime": {
+          "Modele.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Vues/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Images/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modele/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

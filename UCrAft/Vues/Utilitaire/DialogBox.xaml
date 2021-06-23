@@ -1,0 +1,31 @@
+﻿<Window x:Class="Vues.Utilitaire.DialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vues.Utilitaire"
+        mc:Ignorable="d"
+        Title="DialogBox" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close" CanExecute="CommandBinding_CanExecute" Executed="CloseCommande"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="Esc" Command="ApplicationCommands.Close"/>
+    </Window.InputBindings>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="2" x:Name="TextBlockQuestion" Text="Texte interrogatif" Margin="4"/>
+        <Button Grid.Row="1" x:Name="BouttonChoix1" Click="BouttonChoix_Click" Margin="4,1" IsDefault="True" Content="choix1"/>
+        <Button Grid.Row="1" x:Name="BouttonChoix2" Click="BouttonChoix_Click" Margin="4,1" Grid.Column="1" Content="choix2"/>
+    </Grid>
+</Window>

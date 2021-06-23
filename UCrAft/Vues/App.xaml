@@ -1,0 +1,172 @@
+﻿<Application x:Class="Vues.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Vues"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:modele="clr-namespace:Modele;assembly=Modele"
+             StartupUri="MainWindow.xaml"
+             xmlns:converter="clr-namespace:Vues.Converter">
+    <Application.Resources>
+
+
+        <converter:ConvertisseurImageSource x:Key="converterStringImage"/>
+        
+        <Style TargetType="TextBox" x:Key="TitleBox">
+            <Setter Property="FontFamily" Value="./Ressources/Font/#Minecraft, impact"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TitleBlock">
+            <Setter Property="FontFamily" Value="./Ressources/Font/#Minecraft, impact"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonCraft">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="MinWidth" Value="30"/>
+                <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="6" BorderBrush="DarkGray">
+                            <Border.Background>
+                                <SolidColorBrush Color="LightGray"></SolidColorBrush>
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="6" BorderBrush="Black">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="SkyBlue" Opacity="0.5"/>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="true">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="6" BorderBrush="Black">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="SkyBlue" Opacity="0.5"/>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BoutonsApp">
+            <Setter Property="MinHeight" Value="25"/>
+            <Setter Property="MinWidth" Value="50"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Images;Component/TextureBoutons.png"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" BorderBrush="Black">                            
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Images;Component/TextureBoutons.png"/>
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="1" BorderBrush="Black" Opacity="0.7">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Images;Component/TextureBoutons.png"/>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="1" BorderBrush="Black">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Images;Component/TextureBoutonsHover.png"/>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="true">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="1" BorderBrush="Black">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Images;Component/TextureBoutonsHover.png"/>
+                                    </Border.Background>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="objetReduit">
+            <StackPanel>
+                <Image Source="{Binding ImageChemin, Converter={StaticResource converterStringImage}}" MaxHeight="60"/>
+                <TextBlock Text="{Binding Nom}" FontSize="20" HorizontalAlignment="Center" Foreground="White"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="itemCraftableDetaillé">
+            <WrapPanel>
+                <WrapPanel.Background>
+                    <SolidColorBrush Color="Black" Opacity="0"/>
+                </WrapPanel.Background>
+                <Image Source="{Binding ImageChemin, Converter={StaticResource converterStringImage}}" MinWidth="20" MaxHeight="100"/>
+                <TextBlock Text="{Binding Nom}" VerticalAlignment="Center" Foreground="White"/>
+            </WrapPanel>
+        </DataTemplate>
+        
+        <ItemsPanelTemplate x:Key="itemTemplateHorizontal">
+            <WrapPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="itemTemplateVertical">
+            <WrapPanel Orientation="Vertical"/>
+        </ItemsPanelTemplate>
+        
+        <ObjectDataProvider x:Key="biomesRessources" ObjectType="{x:Type system:Enum}" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="modele:EBiomes"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+    </Application.Resources>
+</Application>
