@@ -60,7 +60,7 @@ namespace Vues
         /// <summary>
         /// La classe utilisée pour la persistance
         /// </summary>
-        private IPersistanceManager managerPersistance = new PersXMLLinQ();
+        private IPersistanceManager managerPersistance = new Stub();
 
         /// <summary>
         /// Le ManagerObjet servant de passerelle vers le modèle
